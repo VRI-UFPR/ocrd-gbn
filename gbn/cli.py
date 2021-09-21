@@ -3,7 +3,8 @@ from ocrd.decorators import ocrd_cli_options, ocrd_cli_wrap_processor
 
 from gbn.sbb.binarize import OcrdGbnSbbBinarize
 from gbn.sbb.crop import OcrdGbnSbbCrop
-from gbn.sbb.segment import OcrdGbnSbbSegmentPage, OcrdGbnSbbSegmentRegions
+from gbn.sbb.segment.page import OcrdGbnSbbSegmentPage
+from gbn.sbb.segment.regions import OcrdGbnSbbSegmentRegions
 
 
 @click.command()
