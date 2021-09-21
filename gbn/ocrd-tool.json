@@ -98,6 +98,16 @@
         "OCR-D-SEG-PAGE"
       ],
       "parameters": {
+        "feature_selector": {
+          "type": "string",
+          "description": "Comma-separated list of features the retrieved images SHOULD have (OCR-D/core API access point)",
+          "default": ""
+        },
+        "feature_filter": {
+          "type": "string",
+          "description": "Comma-separated list of features the retrieved images SHOULD NOT have (OCR-D/core API access point)",
+          "default": ""
+        },
         "model": {
           "type": "string",
           "description": "Path to Keras model to be used for predicting regions",
@@ -141,6 +151,16 @@
         "OCR-D-SEG-REG"
       ],
       "parameters": {
+        "feature_selector": {
+          "type": "string",
+          "description": "Comma-separated list of features the retrieved images SHOULD have (OCR-D/core API access point)",
+          "default": ""
+        },
+        "feature_filter": {
+          "type": "string",
+          "description": "Comma-separated list of features the retrieved images SHOULD NOT have (OCR-D/core API access point)",
+          "default": ""
+        },
         "model": {
           "type": "string",
           "description": "Path to Keras model to be used for predicting text lines",

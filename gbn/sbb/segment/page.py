@@ -41,7 +41,9 @@ class OcrdGbnSbbSegmentPage(OcrdGbnProcessor):
             # Get image from PAGE:
             page_image, page_xywh, _ = self.workspace.image_from_page(
                 page,
-                page_id
+                page_id,
+                feature_selector=self.parameter['feature_selector'],
+                feature_filter=self.parameter['feature_filter']
             )
 
             # Convert PIL to cv2 (RGB):

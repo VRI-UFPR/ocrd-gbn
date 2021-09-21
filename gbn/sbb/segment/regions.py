@@ -56,7 +56,9 @@ class OcrdGbnSbbSegmentRegions(OcrdGbnProcessor):
                 region_image, region_xywh = self.workspace.image_from_segment(
                     region,
                     page_image,
-                    page_xywh
+                    page_xywh,
+                    feature_selector=self.parameter['feature_selector'],
+                    feature_filter=self.parameter['feature_filter']
                 )
 
                 region_id = region.get_id()
