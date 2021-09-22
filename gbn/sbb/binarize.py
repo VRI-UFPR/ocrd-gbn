@@ -42,7 +42,8 @@ class OcrdGbnSbbBinarize(OcrdGbnProcessor):
                 page_image, page_xywh, _ = self.workspace.image_from_page(
                     page,
                     page_id,
-                    feature_filter="binarized"
+                    feature_selector=self.parameter['feature_selector'],
+                    feature_filter=self.parameter['feature_filter']
                 )
 
                 # Convert PIL to cv2 (RGB):
@@ -84,7 +85,8 @@ class OcrdGbnSbbBinarize(OcrdGbnProcessor):
                             region,
                             page_image,
                             page_xywh,
-                            feature_filter="binarized"
+                            feature_selector=self.parameter['feature_selector'],
+                            feature_filter=self.parameter['feature_filter']
                         )
 
                     # Convert PIL to cv2 (RGB):
@@ -129,7 +131,8 @@ class OcrdGbnSbbBinarize(OcrdGbnProcessor):
                                 line,
                                 page_image,
                                 page_xywh,
-                                feature_filter="binarized"
+                                feature_selector=self.parameter['feature_selector'],
+                                feature_filter=self.parameter['feature_filter']
                             )
 
                         # Convert PIL to cv2 (RGB):

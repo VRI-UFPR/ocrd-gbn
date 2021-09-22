@@ -15,8 +15,6 @@ class OcrdGbnSbbSegmentRegions(OcrdGbnProcessor):
     tool = "ocrd-gbn-sbb-segment-regions"
     log = ocrd_utils.getLogger("processor.OcrdGbnSbbSegmentRegions")
 
-    fallback_image_filegrp = "OCR-D-IMG-SEG-REGIONS"
-
     def process(self):
         # Ensure path to model is absolute:
         self.parameter['model'] = os.path.realpath(self.parameter['model'])

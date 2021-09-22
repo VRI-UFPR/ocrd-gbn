@@ -15,8 +15,6 @@ class OcrdGbnSbbCrop(OcrdGbnProcessor):
     tool = "ocrd-gbn-sbb-crop"
     log = ocrd_utils.getLogger("processor.OcrdGbnSbbCrop")
 
-    fallback_image_filegrp = "OCR-D-IMG-CROP"
-
     def process(self):
         # Ensure path to model is absolute:
         self.parameter['model'] = os.path.realpath(self.parameter['model'])
@@ -42,7 +40,8 @@ class OcrdGbnSbbCrop(OcrdGbnProcessor):
             page_image, page_xywh, _ = self.workspace.image_from_page(
                 page,
                 page_id,
-                feature_filter="cropped"
+                feature_selector=self.parameter['feature_selector'],
+                feature_filter=self.parameter['feature_filter']
             )
 
             # Convert PIL to cv2 (RGB):

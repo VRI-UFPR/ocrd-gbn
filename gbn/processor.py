@@ -13,21 +13,21 @@ class OcrdGbnProcessor(ocrd.Processor):
     tool = "ocrd-gbn-processor"
     log = ocrd_utils.getLogger("processor.OcrdGbnProcessor")
 
-    fallback_image_filegrp = "OCR-D-IMG-PROCESSOR"
+    fallback_image_filegrp = None
 
     def __init__(self, *args, **kwargs):
         kwargs['ocrd_tool'] = OCRD_TOOL['tools'][self.tool]
         kwargs['version'] = OCRD_TOOL['version']
         super(OcrdGbnProcessor, self).__init__(*args, **kwargs)
 
-        if hasattr(self, "output_file_grp"):
-            try:
-                # If image file group specified:
-                self.page_grp, self.image_grp = self.output_file_grp.split(',')
-                self.output_file_grp = self.page_grp
-            except ValueError:
-                # If image file group not specified:
-                self.page_grp = self.output_file_grp
+        try:
+            # If image file group specified:
+            self.page_grp, self.image_grp = self.output_file_grp.split(',')
+            self.output_file_grp = self.page_grp
+        except ValueError:
+            # If image file group not specified:
+            self.page_grp = self.output_file_grp
+            if self.fallback_image_filegrp is not None:
                 self.image_grp = self.fallback_image_filegrp
                 self.log.info(
                     "No output file group for images specified, "

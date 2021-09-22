@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "git_url": "https://github.com/sulzbals/gbn",
+  "git_url": "https://github.com/GBN-DBP/gbn",
   "tools": {
     "ocrd-gbn-sbb-crop": {
       "executable": "ocrd-gbn-sbb-crop",
@@ -20,6 +20,16 @@
         "OCR-D-CROP"
       ],
       "parameters": {
+        "feature_selector": {
+          "type": "string",
+          "description": "Comma-separated list of features the retrieved images SHOULD have (OCR-D/core API access point)",
+          "default": ""
+        },
+        "feature_filter": {
+          "type": "string",
+          "description": "Comma-separated list of features the retrieved images SHOULD NOT have (OCR-D/core API access point)",
+          "default": "cropped"
+        },
         "model": {
           "type": "string",
           "description": "Path to Keras model to be used",
@@ -52,9 +62,20 @@
         "OCR-D-IMG"
       ],
       "output_file_grp": [
-        "OCR-D-BIN"
+        "OCR-D-BIN",
+        "OCR-D-IMG-BIN"
       ],
       "parameters": {
+        "feature_selector": {
+          "type": "string",
+          "description": "Comma-separated list of features the retrieved images SHOULD have (OCR-D/core API access point)",
+          "default": ""
+        },
+        "feature_filter": {
+          "type": "string",
+          "description": "Comma-separated list of features the retrieved images SHOULD NOT have (OCR-D/core API access point)",
+          "default": "binarized"
+        },
         "model": {
           "type": "string",
           "description": "Path to Keras model to be used",
