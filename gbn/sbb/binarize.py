@@ -74,7 +74,7 @@ class OcrdGbnSbbBinarize(OcrdGbnProcessor):
                     page_id
                 )
 
-                regions = page.get_TextRegion()
+                regions = page.get_AllTextRegions(classes=['Text'])
 
                 for region in regions:
                     region_id = region.get_id()
@@ -115,7 +115,7 @@ class OcrdGbnSbbBinarize(OcrdGbnProcessor):
                     page_id
                 )
 
-                regions = page.get_TextRegion()
+                regions = page.get_AllTextRegions(classes=['Text'])
 
                 for region in regions:
                     region_id = region.get_id()

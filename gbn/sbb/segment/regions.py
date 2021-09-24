@@ -48,7 +48,7 @@ class OcrdGbnSbbSegmentRegions(OcrdGbnProcessor):
             # Get TextLine prediction for page:
             line_prediction = model.predict(page_image_cv2)
 
-            regions = page.get_TextRegion()
+            regions = page.get_AllTextRegions(classes=['Text'])
 
             for region in regions:
                 region_image, region_xywh = self.workspace.image_from_segment(
